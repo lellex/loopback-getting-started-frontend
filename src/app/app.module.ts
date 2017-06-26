@@ -4,6 +4,8 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CoffeeshopService } from './coffeeshops/coffeeshop.service';
+import { ReviewsService } from './reviews/reviews.service';
+
 import { CoffeeshopsComponent } from './coffeeshops/coffeeshops.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 
@@ -17,7 +19,10 @@ import { ReviewsComponent } from './reviews/reviews.component';
     BrowserModule,
     HttpModule
   ],
-  providers: [CoffeeshopService],
+  providers: [
+    CoffeeshopService,
+    ReviewsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
+
+import { Review } from './review';
+import { ReviewsService } from './reviews.service';
 
 @Component({
   selector: 'reviews',
@@ -6,14 +9,14 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-  private id;
+  @Input() coffeeshop: any;
+  reviews: Review[] = []
   
-  constructor(elm: ElementRef) {
-    this.id = elm.nativeElement.id; 
-    console.log(this.id)
-  }
+  constructor(private reviewsService: ReviewsService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.reviewsService.getReviews({"coffeeShopId": this.coffeeshop.id})
+      .then(reviews => this.reviews = reviews);
   }
 
 }

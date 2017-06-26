@@ -13,7 +13,7 @@ export class ReviewsService {
     constructor(private http: Http) { }
     
     getReviews(filters): Promise<Review[]> {
-    return this.http.get(this.reviewsUrl + filters)
+    return this.http.get(this.reviewsUrl + '?filter=[include]=reviewer&' + JSON.stringify(filters))
                 .toPromise()
                 .then(response => response.json() as Review[])
                 .catch(this.handleError);
