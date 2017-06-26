@@ -5,8 +5,7 @@ import { CoffeeshopService } from './coffeeshop.service';
 
 @Component({
   selector: 'coffeeshops',
-  templateUrl: './coffeeshops.component.html',
-  styleUrls: ['./coffeeshops.component.css']
+  templateUrl: './coffeeshops.component.html'
 })
 export class CoffeeshopsComponent implements OnInit {
   coffeeshops: Coffeeshop[] = [];
