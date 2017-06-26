@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
+
 import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Coffeeshop } from './coffeeshop';
+import { Review } from './review';
 
 @Injectable()
-export class CoffeeshopService {
-    private coffeshopsUrl = 'https://fierce-sierra-30734.herokuapp.com/api/CoffeeShops';  // URL to web api
+export class ReviewsService {
+    private reviewsUrl = 'https://fierce-sierra-30734.herokuapp.com/api/Reviews';  // URL to web api
     
     constructor(private http: Http) { }
     
-    getCoffeeshops(): Promise<Coffeeshop[]> {
-    return this.http.get(this.coffeshopsUrl)
+    getReviews(filters): Promise<Review[]> {
+    return this.http.get(this.reviewsUrl + filters)
                 .toPromise()
-                .then(response => response.json() as Coffeeshop[])
+                .then(response => response.json() as Review[])
                 .catch(this.handleError);
     }
     

@@ -6,6 +6,7 @@
   <a *ngFor="let coffeeshop of coffeeshops" class="col-1-4">
     <div class="module coffeeshop">
       <h4>{{coffeeshop.name}}</h4>
+      <reviews [id]="coffeeshop.id"></reviews>
     </div>
   </a>
 </div>
